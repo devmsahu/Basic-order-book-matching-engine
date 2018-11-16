@@ -1,11 +1,10 @@
 Simple Order Book With Matching Capability
-This exercise is to create a simple full depth trading order book with matching capability. Description
+This exercise is to create a simple full depth trading order book with matching capability.
 
 Setup
 Language : JAVA
 Build Tool : Gradle
 Testing : Junit 4.12
-End with an example of getting some data out of the system or using it for a little demo
 
 Running the tests
 1. OrderBookClient:
