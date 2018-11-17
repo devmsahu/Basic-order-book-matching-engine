@@ -1,0 +1,53 @@
+*****STARTING ORDER BOOK SIMULATOR*****
+
+______ORDER BOOK______
+side | qty@price
+BID | 1000 @ 9.9
+BID | 3000 @ 9.8
+BID | 5000 @ 9.7
+ASK | 3000 @ 10.1
+ASK | 3000 @ 10.2
+ASK | 10000 @ 10.3
+
+______ALL BID ORDERS______
+1000 @ 9.9
+3000 @ 9.8
+5000 @ 9.7
+
+______ALL ASK ORDERS______
+3000 @ 10.1
+3000 @ 10.2
+10000 @ 10.3
+
+______ORDER BOOK______
+side | qty@price
+BID | 1000 @ 10.5
+BID | 1000 @ 9.9
+BID | 3000 @ 9.8
+BID | 5000 @ 9.7
+
+______ORDER BOOK______
+side | qty@price
+BID | 5000 @ 9.7
+ASK | 55000 @ 9.8
+
+______ORDER BOOK______
+side | qty@price
+BID | 5000 @ 9.7
+
+______ORDER BOOK______
+side | qty@price
+
+______EXECUTED ORDERS______
+3000 @ 10.1
+3000 @ 10.2
+10000 @ 10.3
+1000 @ 10.5
+1000 @ 9.9
+3000 @ 9.8
+55000 @ 9.8
+5000 @ 9.7
+Clearning order book with pending sell[0] and buy[0] orders
+Order book is cleared!!!!
+
+Process finished with exit code 0
