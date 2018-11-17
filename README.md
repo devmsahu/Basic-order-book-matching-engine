@@ -20,6 +20,7 @@ End with an example of getting some data out of the system or using it for a lit
 1. OrderBookClient:
         -Simulates a client
         -places buy/sell orders
+        *Output_OrderBookClient.txt contains result of this client run
         
 2. SimpleOrderBookTest:
     -Junit tests as testXXX
