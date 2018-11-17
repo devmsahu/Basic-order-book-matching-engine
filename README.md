@@ -17,14 +17,15 @@ End with an example of getting some data out of the system or using it for a lit
 ## Running the tests
 
 ```
-1. OrderBookClient:
+1. OrderBookClient.java:
         -Simulates a client
         -places buy/sell orders
-        
-2. SimpleOrderBookTest:
+        *Output_OrderBookClient.txt has output for this client run
+		
+2. SimpleOrderBookTest.java:
     -Junit tests as testXXX
  
-3. LoadTester:
+3. LoadTester.java:
     -Simulate a high load (orders) by placing 1M orders in short time  
     
 ```
