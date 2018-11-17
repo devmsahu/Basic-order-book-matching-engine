@@ -17,6 +17,50 @@ public class SimpleOrderBook implements OrderBook {
     }
 
     @Override
+    public void getOrderBook() {
+        System.out.println("\n______ORDER BOOK______\nside | qty@price");
+        buyOrders.forEach((price, qty)->System.out.println("BID | "+ qty+" @ "+price));
+        sellOrders.forEach((price, qty)->System.out.println("ASK | "+ qty+" @ "+price));
+    }
+
+    @Override
+    public void getAllAsk() {
+        System.out.println("\n______ALL ASK ORDERS______");
+        sellOrders.forEach((price, qty)->System.out.println(qty+" @ "+price));
+    }
+
+    @Override
+    public void getAllBid() {
+        System.out.println("\n______ALL BID ORDERS______");
+        buyOrders.forEach((price, qty)->System.out.println(qty+" @ "+price));
+
+    }
+
+    @Override
+    public void getMatchedOrders() {
+        System.out.println("\n______EXECUTED ORDERS______");
+        matchedOrders.
+                stream()
+                .forEach(System.out::println);
+    }
+
+
+    @Override
+    public Map.Entry<Double, Integer> getBuyAtLevel(int level){
+        return buyOrders.entrySet().stream()
+                .skip(level-1)
+                .findFirst().orElse(null);
+    }
+
+    @Override
+    public Map.Entry<Double, Integer> getSellAtLevel(int level){
+        return sellOrders.entrySet().stream()
+                .skip(level-1)
+                .findFirst().orElse(null);
+    }
+
+
+    @Override
     public void addNewOrder(double price, int qty, boolean isBuy) {
         if (isBuy) {
             List<Double> sell_side_prices = new ArrayList<>(sellOrders.keySet());
@@ -95,7 +139,7 @@ public class SimpleOrderBook implements OrderBook {
     }
 
      /**
-     * Method to get all buy quantity by passing min value -2^31. This will give all buy orders
+     * Helper method to get all buy quantity by passing min value -2^31. This will give all buy orders
      * @return buy order quantity
      */
     public int getBuyOrderQty() {
@@ -103,7 +147,7 @@ public class SimpleOrderBook implements OrderBook {
     }
 
     /**
-     * Method to get all buy quantity by passing a best price.
+     * Helper method to get all buy quantity by passing a best price.
      * @return buy order quantity
      */
 
@@ -118,7 +162,7 @@ public class SimpleOrderBook implements OrderBook {
     }
 
     /**
-     * Method to get all buy quantity by passing max value 2^31-1. This will give all sell orders
+     * Helper method to get all buy quantity by passing max value 2^31-1. This will give all sell orders
      * @return sell order quantity
      */
     public int getSellOrderQuantity() {
@@ -126,7 +170,7 @@ public class SimpleOrderBook implements OrderBook {
     }
 
     /**
-     * Method to get all sell quantity by passing a best price.
+     * Helper method to get all sell quantity by passing a best price.
      * @return sell order quantity
      */
     public int getSellOrderQuantity(double bestAsk) {
@@ -147,34 +191,6 @@ public class SimpleOrderBook implements OrderBook {
         return buyOrders.size();
     }
 
-    @Override
-    public void getMatchedOrders() {
-        System.out.println("\n______EXECUTED ORDERS______");
-        matchedOrders.
-                stream()
-                .forEach(System.out::println);
-    }
-
-    @Override
-    public void getOrderBook() {
-        System.out.println("\n______ORDER BOOK______\nside | qty@price");
-        buyOrders.forEach((price, qty)->System.out.println("BID | "+ qty+" @ "+price));
-        sellOrders.forEach((price, qty)->System.out.println("ASK | "+ qty+" @ "+price));
-    }
-
-    @Override
-    public void getAllAsk() {
-        System.out.println("\n______ALL ASK ORDERS______");
-        sellOrders.forEach((price, qty)->System.out.println(qty+" @ "+price));
-    }
-
-    @Override
-    public void getAllBid() {
-        System.out.println("\n______ALL BID ORDERS______");
-        buyOrders.forEach((price, qty)->System.out.println(qty+" @ "+price));
-
-    }
-
     public void printSellAtLevel(int level) {
         sellOrders.entrySet().stream()
                 .skip(level-1)
@@ -188,20 +204,6 @@ public class SimpleOrderBook implements OrderBook {
                 .skip(level-1)
                 .findFirst()
                 .ifPresent(buyOrder->System.out.println("Bid | level-"+level+" | "+buyOrder.getValue()+"@"+buyOrder.getKey()));
-    }
-
-    @Override
-    public Map.Entry<Double, Integer> getBuyAtLevel(int level){
-       return buyOrders.entrySet().stream()
-                .skip(level-1)
-                .findFirst().orElse(null);
-    }
-
-    @Override
-    public Map.Entry<Double, Integer> getSellAtLevel(int level){
-        return sellOrders.entrySet().stream()
-                .skip(level-1)
-                .findFirst().orElse(null);
     }
 
 

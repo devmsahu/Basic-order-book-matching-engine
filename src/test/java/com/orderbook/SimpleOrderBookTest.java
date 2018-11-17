@@ -8,19 +8,6 @@ import org.junit.Test;
 import java.util.Map;
 
 public class SimpleOrderBookTest {
-/*
-    void getOrderBook();
-    void getAllAsk();
-    void getAllBid();
-    void getAskAtLevel(int level);
-    void getBidAtLevel(int level);
-    void addNewOrder(double price, int qty, boolean isBuy);
-    void getMatchedOrders();
-    void clearOrderBook();
-
-    testBuyLevels()
-    testSellLevels()
- */
 
     private  SimpleOrderBook simpleOrderBook;
 
